@@ -96,6 +96,7 @@ Flight::route('POST /auth', function () {
                 'data' => $user['id']
             ];
             $jwt = JWT::encode($payload, $key, 'HS256');
+            //La estructura del token resultante siempre es: [Header codificado].[Payload codificado].[Firma]
             error_log("Token generado: " . $jwt);
 
             // Establecer la cookie
